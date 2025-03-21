@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator with Graphs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="basic">Basic</button>
+                <button class="mode-btn" data-mode="scientific">Scientific</button>
+            </div>
+            <div class="display">
+                <div class="secondary-display" id="secondaryDisplay"></div>
+                <input type="text" id="display" readonly>
+            </div>
+            <div class="angle-mode">
+                <button class="angle-btn active" data-angle="deg">DEG</button>
+                <button class="angle-btn" data-angle="rad">RAD</button>
+            </div>
+            <div class="buttons basic-buttons">
+                <button class="operator" data-value="clear">C</button>
+                <button class="operator" data-value="backspace">⌫</button>
+                <button class="operator" data-value="%">%</button>
+                <button class="operator" data-value="/">÷</button>
+                
+                <button data-value="7">7</button>
+                <button data-value="8">8</button>
+                <button data-value="9">9</button>
+                <button class="operator" data-value="*">×</button>
+                
+                <button data-value="4">4</button>
+                <button data-value="5">5</button>
+                <button data-value="6">6</button>
+                <button class="operator" data-value="-">-</button>
+                
+                <button data-value="1">1</button>
+                <button data-value="2">2</button>
+                <button data-value="3">3</button>
+                <button class="operator" data-value="+">+</button>
+                
+                <button data-value="0">0</button>
+                <button data-value=".">.</button>
+                <button class="equals" data-value="=">=</button>
+            </div>
+            <div class="buttons scientific-buttons hidden">
+                <button class="operator" data-value="clear">C</button>
+                <button class="operator" data-value="backspace">⌫</button>
+                <button class="function-btn" data-value="pi">π</button>
+                <button class="operator" data-value="/">/</button>
+
+                <button class="function-btn" data-value="sin">sin</button>
+                <button class="function-btn" data-value="cos">cos</button>
+                <button class="function-btn" data-value="tan">tan</button>
+                <button class="operator" data-value="*">×</button>
+
+                <button class="function-btn" data-value="asin">sin⁻¹</button>
+                <button class="function-btn" data-value="acos">cos⁻¹</button>
+                <button class="function-btn" data-value="atan">tan⁻¹</button>
+                <button class="operator" data-value="-">-</button>
+
+                <button class="function-btn" data-value="log">log</button>
+                <button class="function-btn" data-value="ln">ln</button>
+                <button class="function-btn" data-value="pow">x^y</button>
+                <button class="operator" data-value="+">+</button>
+
+                <button class="function-btn" data-value="sqrt">√</button>
+                <button class="function-btn" data-value="exp">e^x</button>
+                <button class="function-btn" data-value="e">e</button>
+                <button class="equals" data-value="=">=</button>
+
+                <button class="function-btn" data-value="abs">|x|</button>
+                <button class="function-btn" data-value="fact">n!</button>
+                <button class="function-btn" data-value="mod">mod</button>
+                <button class="function-btn" data-value="10^x">10^x</button>
+            </div>
+        </div>
+        <div class="visualization-container">
+            <div class="graph-controls">
+                <button class="graph-type-btn active" data-type="line">Line</button>
+                <button class="graph-type-btn" data-type="bar">Bar</button>
+                <button class="graph-type-btn" data-type="pie">Pie</button>
+                <button class="graph-type-btn" data-type="radar">Radar</button>
+                <button class="graph-type-btn" data-type="scatter">Scatter</button>
+            </div>
+            <div class="graph-wrapper">
+                <canvas id="calculationGraph"></canvas>
+            </div>
+            <div class="graph-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Average:</span>
+                    <span class="stat-value" id="averageValue">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Sum:</span>
+                    <span class="stat-value" id="sumValue">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Max:</span>
+                    <span class="stat-value" id="maxValue">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
